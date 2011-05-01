@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+<script type="text/javascript" src="../mywordbook.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    test("ノーマルケース1", function() {
+      var html = "<div>my name is hatakeyama</div>";
+      var e = jQuery(html)[0];
+      highlight(e, "hatakeyama");
+      var expected = "my name is <span>hatakeyama</span>"
+      equals( expected, jQuery(e).html(), "test" );
+    });
+
+    test("ノーマルケース2", function() {
+      var html = "<div>my name is hatakeyama</div>";
+      var e = jQuery(html)[0];
+      highlight(e, "name");
+      var expected = "my <span>name</span> is hatakeyama"
+      equals( expected, jQuery(e).html(), "test" );
+    });
+
+    test("ノーマルケース3", function() {
+      var html = "<div>my name is hatakeyama</div>";
+      var e = jQuery(html)[0];
+      highlight(e, "nothing");
+      var expected = "my name is hatakeyama"
+      equals( expected, jQuery(e).html(), "test" );
+    });
+
+    test("いっこ深い要素を置き換え1", function() {
+      var html = "<div><div>my name is hatakeyama</div><div>my name is takashi</div></div>";
+      var e = jQuery(html)[0];
+      highlight(e, "takashi");
+      var expected = "<div>my name is hatakeyama</div><div>my name is <span>takashi</span></div>"
+      equals( expected, jQuery(e).html(), "test" );
+    });
+
+test("a basic test example", function() {
+  ok( true, "this test is fine" );
+  var value = "hello";
+  equals( "hello", value, "We expect value to be hello" );
+});
+
+module("Module A");
+
+test("first test within module", function() {
+  ok( true, "all pass" );
+});
+
+test("second test within module", function() {
+  ok( true, "all pass" );
+});
+
+module("Module B");
+
+test("some other test", function() {
+  expect(2);
+  equals( true, true, "failing test" );
+  equals( true, true, "passing test" );
+});
+
+var d = $("<div>test<div>hoge</div>test</div>");
+var t = $(":text", d);
+
+  });
+  </script>
+  
+</head>
+<body>
+  <h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
+</body>
+</html>
