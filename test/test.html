@@ -14,7 +14,7 @@
       var html = "<div>my name is hatakeyama</div>";
       var e = jQuery(html)[0];
       highlight(e, "hatakeyama");
-      var expected = "my name is <span>hatakeyama</span>"
+      var expected = "my name is <span class=\"highlight\">hatakeyama</span>"
       equals( expected, jQuery(e).html(), "test" );
     });
 
@@ -22,7 +22,7 @@
       var html = "<div>my name is hatakeyama</div>";
       var e = jQuery(html)[0];
       highlight(e, "name");
-      var expected = "my <span>name</span> is hatakeyama"
+      var expected = "my <span class=\"highlight\">name</span> is hatakeyama"
       equals( expected, jQuery(e).html(), "test" );
     });
 
@@ -38,7 +38,7 @@
       var html = "<div><div>my name is hatakeyama</div><div>my name is takashi</div></div>";
       var e = jQuery(html)[0];
       highlight(e, "takashi");
-      var expected = "<div>my name is hatakeyama</div><div>my name is <span>takashi</span></div>"
+      var expected = "<div>my name is hatakeyama</div><div>my name is <span class=\"highlight\">takashi</span></div>"
       equals( expected, jQuery(e).html(), "test" );
     });
 
