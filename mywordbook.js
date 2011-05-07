@@ -471,3 +471,15 @@ function main() {
 }
 
 main();
+
+// 選択中の文字列を返す
+chrome.extension.onRequest.addListener(
+  function (request, sender, sendResponse) {
+    // if (request.message == "aaa") {
+    if (request.message == "getSelection") {
+      var selection = window.getSelection().toString();
+      sendResponse({ result: selection });
+    } else {
+      sendResponse({ result: "failed" }); // return empty object
+    }
+  });

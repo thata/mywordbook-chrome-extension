@@ -3,10 +3,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+  <div><input id="selection" type="text" /></div>
+  <div><input type="submit" /></div>
 <script>
-  var p = document.createElement("p");
-  p.textContent = "Hello World";
-  document.body.appendChild(p);
+// 選択中の文字列を取得する
+chrome.tabs.getSelected(null, function(tab) {
+  chrome.tabs.sendRequest(tab.id, { message: "getSelection" }, function(response) {
+    var selection = response.result;
+    var text = document.getElementById("selection");
+    text.value = selection;
+  });
+});
 </script>
 </body>
 </html>

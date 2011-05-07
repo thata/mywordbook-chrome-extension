@@ -14,9 +14,11 @@
       "css": ["mystyles.css"],
       "js": ["jquery.js", "mywordbook.js"]
     }
+  ],
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs"
   ]
-//  "permissions": [
-//    "http://api.flickr.com/"
-//  ]
 }
 
