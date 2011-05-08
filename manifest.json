@@ -9,15 +9,14 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://www.infoq.com/*"],
-      // "matches": ["http://d.hatena.ne.jp/thata/*"],
+      "matches": ["http://*/*"],
       "css": ["mystyles.css"],
       "js": ["jquery.js", "mywordbook.js"]
     }
   ],
   "permissions": [
-    "http://*/*",
-    "https://*/*",
+    // "http://*/*",
+    // "https://*/*",
     "tabs"
   ]
 }
